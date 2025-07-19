@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@import 'leaflet/dist/leaflet.css';
+
+.emoji-icon {
+  font-size: 24px;
+  text-shadow: 0 0 2px white;
+}
+
+.custom-user-pin {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+/* somewhere global or scoped */
+.leaflet-tooltip.custom-tooltip {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-align: left !important;
+  padding: 0 !important;
+}
+/* Loader.css */
+.dots-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background-color: #b3d4fc;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.dot:last-child {
+  margin-right: 0;
+}
+
+.dot:nth-child(1) {
+  animation-delay: -0.3s;
+}
+.dot:nth-child(2) {
+  animation-delay: -0.1s;
+}
+.dot:nth-child(3) {
+  animation-delay: 0.1s;
+}
+.dot:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.dot:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    background-color: #b3d4fc;
+    box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
+  }
+  50% {
+    transform: scale(1.2);
+    background-color: #6793fb;
+    box-shadow: 0 0 0 10px rgba(178, 212, 252, 0);
+  }
+  100% {
+    transform: scale(0.8);
+    background-color: #b3d4fc;
+    box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
+  }
+}
