@@ -25,25 +25,8 @@ import {
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import { fetchWithRetry } from "./utils/fetchWithRetry"; // adjust path as needed
 import VideoPlayer from "./components/video";
-<<<<<<< HEAD
-import ScrollCard from "./components/scrollcard";
-import L from "leaflet";
-
-function getCustomIcon() {
-  return L.divIcon({
-    className: "", // No default class
-    html: `
-      <div class="custom-marker">
-        <img src="/pin.png" alt="marker base" />
-      </div>
-    `,
-    iconSize: [40, 40],
-    iconAnchor: [20, 40], // Keeps the bottom of the pin anchored
-  });
-}
-=======
 import ScrollCard from "./components/ScrollCard";
->>>>>>> a55d5c44ede2e808ef69172fa8f01e991dbb506c
+import L from "leaflet";
 
 interface Project {
   id: number;
@@ -62,7 +45,18 @@ interface Project {
     email: string;
   };
 }
-
+function getCustomIcon() {
+  return L.divIcon({
+    className: "", // No default class
+    html: `
+      <div class="custom-marker">
+        <img src="/pin.png" alt="marker base" />
+      </div>
+    `,
+    iconSize: [40, 40],
+    iconAnchor: [20, 40], // Keeps the bottom of the pin anchored
+  });
+}
 function App() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
