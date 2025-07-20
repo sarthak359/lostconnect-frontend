@@ -25,6 +25,7 @@ import {
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import { fetchWithRetry } from "./utils/fetchWithRetry"; // adjust path as needed
 import VideoPlayer from "./components/video";
+<<<<<<< HEAD
 import ScrollCard from "./components/scrollcard";
 import L from "leaflet";
 
@@ -40,6 +41,9 @@ function getCustomIcon() {
     iconAnchor: [20, 40], // Keeps the bottom of the pin anchored
   });
 }
+=======
+import ScrollCard from "./components/ScrollCard";
+>>>>>>> a55d5c44ede2e808ef69172fa8f01e991dbb506c
 
 interface Project {
   id: number;
