@@ -9,7 +9,15 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import BookingCard from "./card";
 import LocationPopup from "./LocationPopup";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+const customIcon = new L.Icon({
+  iconUrl: "/pin.png", // this is in public/
+  iconSize: [32, 32], // or whatever fits your design
+  iconAnchor: [16, 32], // point of the icon which corresponds to marker's location
+  popupAnchor: [0, -32], // popup placement relative to the icon
+});
+
 const MapInstanceSetter = ({
   mapRef,
 }: {
@@ -183,6 +191,7 @@ export default function MapView({
         <MapCenterListener />
         {filteredProjects.map((project) => (
           <Marker
+            icon={customIcon}
             key={project.id}
             position={[project.lat, project.lng]}
             eventHandlers={{
