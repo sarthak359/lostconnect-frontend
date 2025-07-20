@@ -26,6 +26,20 @@ import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import { fetchWithRetry } from "./utils/fetchWithRetry"; // adjust path as needed
 import VideoPlayer from "./components/video";
 import ScrollCard from "./components/scrollcard";
+import L from "leaflet";
+
+function getCustomIcon() {
+  return L.divIcon({
+    className: "", // No default class
+    html: `
+      <div class="custom-marker">
+        <img src="/pin.png" alt="marker base" />
+      </div>
+    `,
+    iconSize: [40, 40],
+    iconAnchor: [20, 40], // Keeps the bottom of the pin anchored
+  });
+}
 
 interface Project {
   id: number;
@@ -749,6 +763,7 @@ function App() {
                       >
                         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                         <Marker
+                          icon={getCustomIcon()}
                           draggable={true}
                           position={markerPosition}
                           eventHandlers={{
