@@ -25,7 +25,7 @@ import {
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import { fetchWithRetry } from "./utils/fetchWithRetry"; // adjust path as needed
 import VideoPlayer from "./components/video";
-import ScrollCard from "./components/ScrollCard";
+import ScrollCard from "./components/scrollcard";
 import L from "leaflet";
 
 interface Project {

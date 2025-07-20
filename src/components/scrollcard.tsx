@@ -24,7 +24,7 @@ export default function ScrollCard({ projects }: Props) {
   return (
     <div className="w-70 h-[50vh] bg-white/95 backdrop-blur-sm shadow-2xl rounded-3xl border-2 border-white overflow-hidden relative z-10">
       {/* Header */}
-      <div className="relative p-4 pl-6 h-20 bg-[#7E57C2] text-white rounded-t-2xl">
+      <div className="relative p-4 pl-6 h-20 bg-[#2b7eff] text-white rounded-t-2xl">
         <h1 className="text-lg font-bold relative z-10">LostConnect Records</h1>
         <h3 className="text-sm text-[#ececec] relative z-10">
           Real-time statistics
