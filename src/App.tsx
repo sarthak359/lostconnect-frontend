@@ -25,6 +25,7 @@ import {
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import { fetchWithRetry } from "./utils/fetchWithRetry"; // adjust path as needed
 import VideoPlayer from "./components/video";
+import ScrollCard from "./components/scrollcard";
 
 interface Project {
   id: number;
@@ -403,7 +404,7 @@ function App() {
       </AnimatePresence>
 
       {/* Main Content Placeholder */}
-      <main className="text-center">
+      <main>
         {/* filter buttons on top is here: tada */}
         <div className="absolute md:top-24 top-19 left-1/2 transform -translate-x-1/2 z-[9] flex flex-row  items-center gap-0 md:gap-2">
           {/* Category Buttons */}
@@ -496,6 +497,18 @@ function App() {
               );
             })}
           </div>
+        </div>
+        <div className="absolute md:top-24 top-30 md:right-0 right-5 transform -translate-x-1/2 z-[9] flex flex-row  items-center gap-0 md:gap-2">
+          {/* Category Buttons */}
+
+          <div className="w-[150px] right-0 flex border-2 border-[#2b7cff4e] hover:border-[#2b7cff91] scale-[0.8] md:scale-[1] bg-white/80 backdrop-blur-md rounded-full shadow-md px-4 py-2 text-sm font-semibold text-gray-700">
+            Total Projects: {projects.length}
+          </div>
+        </div>
+        <div className="absolute md:top-[30%] left-45 transform -translate-x-1/2 z-[9] hidden md:block ">
+          {/* Category Buttons */}
+
+          <ScrollCard projects={projects} />
         </div>
 
         <MapView

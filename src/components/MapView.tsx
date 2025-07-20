@@ -11,12 +11,27 @@ import BookingCard from "./card";
 import LocationPopup from "./LocationPopup";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-const customIcon = new L.Icon({
-  iconUrl: "/pin.png", // this is in public/
-  iconSize: [32, 32], // or whatever fits your design
-  iconAnchor: [16, 32], // point of the icon which corresponds to marker's location
-  popupAnchor: [0, -32], // popup placement relative to the icon
-});
+function getCustomIcon(category: "human" | "animal" | "plant") {
+  const categoryIconMap: { [key in "human" | "animal" | "plant"]: string } = {
+    human: "👤",
+    animal: "🐶",
+    plant: "👜",
+  };
+
+  const categoryIcon = categoryIconMap[category];
+
+  return L.divIcon({
+    className: "",
+    html: `
+      <div class="custom-marker">
+        <img src="/pin.png" alt="marker base" />
+        <div class="icon-overlay">${categoryIcon}</div>
+      </div>
+    `,
+    iconSize: [40, 40],
+    iconAnchor: [20, 40],
+  });
+}
 
 const MapInstanceSetter = ({
   mapRef,
@@ -191,7 +206,7 @@ export default function MapView({
         <MapCenterListener />
         {filteredProjects.map((project) => (
           <Marker
-            icon={customIcon}
+            icon={getCustomIcon(project.category)}
             key={project.id}
             position={[project.lat, project.lng]}
             eventHandlers={{
